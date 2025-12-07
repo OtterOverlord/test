@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="preload" href="styles/main.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/styles/main.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/styles/main.css"></noscript>    
 </head>
 <body>
@@ -47,7 +47,14 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-bg">
-            <img src="assets/hero.webp" alt="Beautiful landscaped garden" loading="lazy">
+            <img 
+                src="assets/hero.webp" 
+                alt="Beautiful landscaped garden" 
+                loading="lazy"
+                width="1920" 
+                height="1080"
+                style="object-fit: cover;"
+            >
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -92,8 +99,8 @@
             <div class="about-content">
                 <div class="about-images">
                     <div class="about-grid">
-                        <img src="assets/asset1.webp" width="284px" height="355px" alt="Team working" loading="lazy">
-                        <img src="assets/asset2.webp" width="284px" height="355px" alt="Finished project" loading="lazy">
+                        <img src="assets/asset1.webp" width="284" height="355" alt="Team working" loading="lazy">
+                        <img src="assets/asset2.webp" width="284" height="355" alt="Finished project" loading="lazy">
                     </div>
                 </div>
                 <div class="about-text">
@@ -308,6 +315,3 @@
     -->
 </body>
 </html>
-
-
-
