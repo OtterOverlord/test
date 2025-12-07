@@ -6,45 +6,22 @@
     <title>GreenScape Landscaping - Professional Outdoor Services</title>
     <meta name="description" content="Transform your outdoor space into a sanctuary. Premier landscaping, hardscaping, and design services.">
     
+    <!-- Preconnect to optimize font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Preload critical fonts -->
-    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtM.woff2" type="font/woff2" crossorigin>
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles.css" as="style">
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Async font loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
-    <style>
-        /* Prevent FOUT (Flash of Unstyled Text) */
-        body { font-family: system-ui, -apple-system, sans-serif; }
-        
-        /* Reserve space for hero content to prevent layout shift */
-        .hero-content {
-            min-height: 400px;
-        }
-        
-        /* Stabilize navbar height */
-        .navbar {
-            height: 80px;
-        }
-        
-        /* Ensure hero image container has dimensions */
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-        
-        .hero-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/main.css">
     
-    <link rel="preload" href="styles/main.css" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/styles/main.css"></noscript>    
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=60" media="(max-width: 767px)">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1920&q=70" media="(min-width: 768px)">
 </head>
 <body>
     <!-- Navbar -->
@@ -61,7 +38,7 @@
                 <li><a href="#gallery" class="navbar-link">Portfolio</a></li>
                 <li><a href="#contact" class="navbar-link primary">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
                 <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                 <svg id="closeIcon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
@@ -77,17 +54,14 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with responsive images -->
     <section id="hero" class="hero">
         <div class="hero-bg">
-            <img 
-                src="assets/hero.webp" 
-                alt="Beautiful landscaped garden" 
-                loading="lazy"
-                width="1920" 
-                height="1080"
-                style="object-fit: cover;"
-            >
+            <picture>
+                <source media="(max-width: 767px)" srcset="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=60" type="image/jpeg">
+                <source media="(min-width: 768px)" srcset="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1920&q=70" type="image/jpeg">
+                <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1920&q=70" alt="Beautiful landscaped garden" loading="eager" fetchpriority="high">
+            </picture>
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -126,14 +100,20 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section with lazy-loaded images -->
     <section id="about" class="section bg-white">
         <div class="container">
             <div class="about-content">
                 <div class="about-images">
                     <div class="about-grid">
-                        <img src="assets/asset1.webp" width="284" height="355" alt="Team working" loading="lazy">
-                        <img src="assets/asset2.webp" width="284" height="355" alt="Finished project" loading="lazy">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop&q=60" type="image/jpeg">
+                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=500&fit=crop&q=70" alt="Team working" loading="lazy" width="400" height="500">
+                        </picture>
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400&h=300&fit=crop&q=60" type="image/jpeg">
+                            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400&h=500&fit=crop&q=70" alt="Finished project" loading="lazy" width="400" height="500">
+                        </picture>
                     </div>
                 </div>
                 <div class="about-text">
@@ -169,7 +149,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section with lazy loading -->
     <section id="gallery" class="section bg-light">
         <div class="container">
             <div class="section-header">
@@ -343,8 +323,7 @@
         </div>
     </footer>
 
-    <!--
-    <script src="script.js"></script>
-    -->
+    <!-- Defer JavaScript loading -->
+    <script src="js/script.js" defer></script>
 </body>
 </html>
