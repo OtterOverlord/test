@@ -8,7 +8,40 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtM.woff2" type="font/woff2" crossorigin>
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Prevent FOUT (Flash of Unstyled Text) */
+        body { font-family: system-ui, -apple-system, sans-serif; }
+        
+        /* Reserve space for hero content to prevent layout shift */
+        .hero-content {
+            min-height: 400px;
+        }
+        
+        /* Stabilize navbar height */
+        .navbar {
+            height: 80px;
+        }
+        
+        /* Ensure hero image container has dimensions */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
     
     <link rel="preload" href="styles/main.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/styles/main.css"></noscript>    
@@ -315,4 +348,3 @@
     -->
 </body>
 </html>
-
